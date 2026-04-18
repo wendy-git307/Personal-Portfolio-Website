@@ -1,0 +1,317 @@
+body {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    line-height: 1.6; 
+    margin: 0;
+    padding: 0; 
+    background-color: #cfa899; 
+    font-size: 16.8px;
+    
+}
+footer { 
+    background-color: #330601; 
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+nav {
+    display: flex;             /* flex container */
+    justify-content: space-between;  /*control horizontal alignment of items in a flex container -- space between: evently distributed in the line*/
+    background-color: #5d241d;    
+}
+
+nav a {
+    flex: 1;                   /* equal width for all links */
+    text-align: center;        
+    padding: 15px 0;           
+    color: white;              
+    text-decoration: none;     /* remove underline */
+    font-weight: bold;         
+    border-right: 1px solid #5d241d; 
+    transition: background 0.3s; /* hover effect smooth */
+}
+
+nav a:last-child {
+    border-right: none;        /* remove last divider */
+}
+nav a:hover {
+    text-decoration:wavy;
+    background-color: #330601;
+}
+main {
+    padding: 20px;
+}
+.my-span {
+    font-style:italic;
+    font-weight: bold;
+    color: #6d3914;
+}
+.header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 2em;
+    font-weight: bold;
+    background: linear-gradient(to right, #a75a4a, #8b372d); /*color transition along the line - from left to right (by default it will be from top to bottom) we can leverage this to create stripes as well*/
+}
+
+.main-homepage {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fcf8f5;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /*add a shadow to the main homepage (horizontal offset, vertical offset, blur radius, color)*/
+    text-align: left;
+}
+
+.flashcard {
+    background-color: #f0f4ff;
+    padding: 20px;
+    border-left: 5px solid #8b372d;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: all 0.3s; /*make animation smooth when any included element's property changes*/
+    text-align: center;
+
+}
+
+.flashcard:hover {
+    transform: translateY(-5px); /*move an element vertically along the Y-axis +px => move downwards / -px => move upwards*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+h1,h2 {
+    color: #330601;
+    text-align: center;
+    font-weight:bold;
+}
+
+h3 {
+    color: #6d3914;
+    font-style:oblique; 
+}
+
+.img {
+    display: block;
+    margin: 0 auto; /* horizontally centers block elements */
+    max-width: 600px;
+    max-height: 400px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid black; 
+}
+ul {
+    list-style-type: square;
+}
+.timeline {
+    display: flex;
+    flex-wrap: wrap; /*items wrap to the next line when there is not enough space*/
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.card {
+    perspective: 1000px; /*add 3D depth into its own element that gonna trasform latter*/
+    width: 90%;
+    max-width: 400px;
+    height: 350px;
+    margin-bottom: 20px;
+    margin: 10px 80px; 
+}
+
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer; /*change the current mouse cursor to a pointer when hovering over the card */
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-front {
+    background-color: #fff;
+    justify-content: flex-start; /*items start at the beginning of the container*/
+}
+
+.card-back {
+    background-color: #f0f0f0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    z-index:2; /*specify the stack order*/
+}
+.card-back:hover .front-img{
+    display: none; 
+}
+
+.card-images {
+    position: relative;
+    width: 80%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+
+.front-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    z-index: 1;
+}
+
+
+.card:hover .front-img {
+    transform: translate(-5px, -5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.card-back ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+.card-back li {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: #5d241d;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.vision-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+.vision-card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height:350px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.vision-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.vision-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    color: #5d241d;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    transition: opacity 0.4s;
+    overflow-wrap: break-word; /*if a word is too long to fit in its container, break it at any point and wrap to the next line*/
+}
+
+.vision-card:hover .vision-overlay {
+    opacity: 1;
+}
+
+.vision-overlay h3 {
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+#visionboard {
+    color: #330601;
+}
+
+figcaption {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.graphicaldesign{
+    float: right;
+    margin-left: 30px; 
+    max-width: 290px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+.imgGraphic{
+    display:block;
+    max-width:290px;
+    align-items: center; 
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f9f9f9; 
+    color: #333; 
+}
+
+th {
+    background-color: #330601;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    background-color: #fff;    
+    color: #000; 
+    padding: 8px;
+    border: 1px solid #ccc;      
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 5px; 
+}
